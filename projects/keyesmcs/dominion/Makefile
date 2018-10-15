@@ -10,7 +10,7 @@ cards:
 	$(MAKE) -C cards
 
 playdom: dominion.o playdom.c
-	gcc -o playdom playdom.c -g dominion.o rngs.o cards/adventurer.o  $(CFLAGS)
+	gcc -o playdom playdom.c -g dominion.o rngs.o cards/cards.so  $(CFLAGS)
 #To run playdom you need to entere: ./playdom <any integer number> like ./playdom 10*/
 testDrawCard: testDrawCard.c dominion.o rngs.o
 	gcc  -o testDrawCard -g  testDrawCard.c dominion.o rngs.o $(CFLAGS)
@@ -34,7 +34,7 @@ runtests: testDrawCard
 
 
 player: player.c interface.o
-	gcc -o player player.c -g  dominion.o rngs.o interface.o cards/adventurer.o $(CFLAGS)
+	gcc -o player player.c -g  dominion.o rngs.o interface.o cards/cards.so $(CFLAGS)
 
 all: cards playdom player 
 

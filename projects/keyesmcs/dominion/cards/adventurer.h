@@ -8,6 +8,6 @@
  *   those Treasure cards into your hand and discard the other revealed
  *   cards.
  */
-int playAdventurer(struct gameState *state);
+int playAdventurer(int player, struct gameState *state);
 
 #endif

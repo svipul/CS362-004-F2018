@@ -96,6 +96,9 @@ int shuffle(int player, struct gameState *state);
 int drawCard(int player, struct gameState *state);
 /* Draw a card and place it in the player's hand */
 
+int discardCard(int handPos, int currentPlayer, struct gameState *state, int trashFlag);
+/* Discard a card in handPos */
+
 int playCard(int handPos, int choice1, int choice2, int choice3,
 	     struct gameState *state);
 /* Play card with index handPos from current player's hand */
@@ -126,6 +129,9 @@ int isGameOver(struct gameState *state);
 int scoreFor(int player, struct gameState *state);
 /* Negative here does not mean invalid; scores may be negative,
    -9999 means invalid input */
+
+int getCost(int cardNumber);
+/* Get the cost of a particular card number. */
 
 int getWinners(int players[MAX_PLAYERS], struct gameState *state);
 /* Set array position of each player who won (remember ties!) to
