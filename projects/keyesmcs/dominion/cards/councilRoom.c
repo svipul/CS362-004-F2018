@@ -36,7 +36,7 @@ void drawFourCards(int player, struct gameState *state) {
 
 void otherPlayersDrawOneCard(int player, struct gameState *state) {
     for (int i = 0; i < state->numPlayers; i++) {
-        if ( i != player ) {
+        if ( i == player ) {
             drawCard(i, state);
         }
     }

@@ -7,7 +7,7 @@ dominion.o: dominion.h dominion.c rngs.o
 	gcc -c dominion.c -g $(CFLAGS)
 
 cards:
-	$(MAKE) -C cards
+	$(MAKE) all -C cards
 
 playdom: dominion.o playdom.c
 	gcc -o playdom playdom.c -g dominion.o rngs.o cards/cards.so  $(CFLAGS)
@@ -36,7 +36,8 @@ runtests: testDrawCard
 player: player.c interface.o
 	gcc -o player player.c -g  dominion.o rngs.o interface.o cards/cards.so $(CFLAGS)
 
-all: cards playdom player 
+all: playdom player 
+	+$(MAKE) all -C cards
 
 clean:
 	rm -f *.o playdom.exe playdom player player.exe  *.gcov *.gcda *.gcno *.so *.out testDrawCard testDrawCard.exe

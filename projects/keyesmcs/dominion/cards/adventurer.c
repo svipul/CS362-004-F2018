@@ -20,8 +20,9 @@ int playAdventurer(int player, struct gameState *state) {
     int cardDrawn;
 
     while(drawnTreasure < 2) {
+
         //if the deck is empty, shuffle discard and add to deck
-        if (state->deckCount[player] <1) {
+        if (state->deckCount[player] <= 1) {
 	    shuffle(player, state);
 	}
 
@@ -49,9 +50,7 @@ int getDrawnCard(int player, struct gameState *state) {
 }
 
 void discardLastDrawnCard(int player, struct gameState *state) {
-    int newDiscardIndex = state->discardCount[player]++;
-    int newHandIndex = state->handCount[player]--;
-        state->discard[player][newDiscardIndex] =
-            state->hand[player][newHandIndex];
+    int lastCardIndex = state->handCount[player] - 1;
+    discardCard(lastCardIndex, player, state, 0); 
 }
 
