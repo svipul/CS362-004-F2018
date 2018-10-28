@@ -12,7 +12,7 @@ void resetCouncilMockState(struct gameState *mockGameState);
 // test function signatures
 
 #define TEST_COUNT 3
-int shufflesDeckIfHandLow(struct gameState *mockGameState);
+int shufflesDeckIfLow(struct gameState *mockGameState);
 int increasesHandByFour(struct gameState *mockGameState);
 int givesOpponentsACard(struct gameState *mockGameState);
 
@@ -30,7 +30,7 @@ int cardtest4() {
     passingTests += assertThat("council room card shuffles the deck if it "
                                "can't draw at least four cards",
                                isTrue,
-                               shufflesDeckIfHandLow(mockGameState));
+                               shufflesDeckIfLow(mockGameState));
 
     passingTests += assertThat("council room card gives other players one "
                                "card each",
@@ -43,7 +43,7 @@ int cardtest4() {
     return passingTests == TEST_COUNT;
 }
 
-int shufflesDeckIfHandLow(struct gameState *mockGameState) {
+int shufflesDeckIfLow(struct gameState *mockGameState) {
     resetCouncilMockState(mockGameState);
     
     // set deckCount to 2, so the game has to shuffle
@@ -85,8 +85,8 @@ void resetCouncilMockState(struct gameState * mockGameState) {
     mockGameState->handCount[1] = mockGameState->handCount[2] =
         mockGameState->handCount[3] = 0;
 
-    mockGameState->drawCount[1] = mockGameState->drawCount[2] =
-        mockGameState->drawCount[3] = 1;
+    mockGameState->deckCount[1] = mockGameState->deckCount[2] =
+        mockGameState->deckCount[3] = 1;
 
     for (i = 0; i < INITIAL_PILE_SIZE; i++) {
         mockGameState->deck[0][i] = estate;

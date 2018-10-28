@@ -62,6 +62,11 @@ cardtest4.o: cardtest4.c cardtest4.h
 testSuite: testSuite.c unittest2.o unittest2.o unittest3.o unittest4.o cardtest1.o cardtest2.o cardtest3.o cardtest4.o
 	gcc -o testSuite testSuite.c -g dominion.o unittest1.o unittest2.o unittest3.o unittest4.o cardtest1.o cardtest2.o cardtest3.o cardtest4.o assertThat.o rngs.o cards/cards.so $(CFLAGS)
 
+unittestresults: testSuite
+	./testSuite > unittestresults.out
+	gcov dominion.c >> unittestresults.out
+	cat dominion.c.gcov >> unittestresults.out
+
 player: player.c interface.o
 	gcc -o player player.c -g  dominion.o rngs.o interface.o cards/cards.so $(CFLAGS)
 
