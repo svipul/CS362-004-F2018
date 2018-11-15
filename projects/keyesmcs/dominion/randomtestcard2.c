@@ -76,18 +76,14 @@ void testSmithyCard(struct gameState *testState) {
 void checkSmithyCard(struct gameState *testState,
                          struct gameState *controlState, int player) {
 
-            controlState->handCount[player] += CARDS_SMITHY_DRAWS;
+        controlState->handCount[player] += CARDS_SMITHY_DRAWS;
+        controlState->deckCount[player] -= CARDS_SMITHY_DRAWS;
 
         memcpy(controlState->hand[player],
                 testState->hand[player],
                 sizeof(int) * MAX_DECK);
         memcpy(controlState->deck[player], testState->deck[player],
                 sizeof(int) * MAX_DECK);
-        memcpy(controlState->discard[player], testState->discard[player],
-                sizeof(int) * MAX_DECK);
-
-        controlState->deckCount[player] = testState->deckCount[player];
-        controlState->discardCount[player] = testState->discardCount[player];
         controlState->handCount[player] = testState->handCount[player];
 
     assert(memcmp(controlState, testState, sizeof(struct gameState)) == 0);
