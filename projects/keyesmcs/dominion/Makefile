@@ -6,8 +6,12 @@ rngs.o: rngs.h rngs.c
 dominion.o: dominion.h dominion.c rngs.o
 	gcc -c dominion.c -g $(CFLAGS)
 
-cards:
-	$(MAKE) all -C cards
+cards: cards/adventurer.c
+	$(MAKE) all -C cards $(CFLAGS)
+
+randomtestcard1: randomtestcard1.c dominion.o rngs.o cards
+	gcc -o randomtestcard1 randomtestcard1.c -g dominion.o rngs.o cards/cards.so $(CFLAGS)
+
 
 playdom: dominion.o playdom.c
 	gcc -o playdom playdom.c -g dominion.o rngs.o cards/cards.so  $(CFLAGS)

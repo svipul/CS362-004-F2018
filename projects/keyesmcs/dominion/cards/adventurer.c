@@ -1,10 +1,12 @@
 #include "../dominion.h"
+#include <stdio.h>
 
 /**
  * Returns the most recently drawn card for a given player
  * In practice, that's the "top" card in the player's hand
  */
 int getDrawnCard(int player, struct gameState *state);
+
 
 
 /**
@@ -20,7 +22,6 @@ int playAdventurer(int player, struct gameState *state) {
     int cardDrawn;
 
     while(drawnTreasure < 2) {
-
         //if the deck is empty, shuffle discard and add to deck
         if (state->deckCount[player] <= 1) {
 	    shuffle(player, state);
@@ -32,13 +33,15 @@ int playAdventurer(int player, struct gameState *state) {
 
         // if the card is a treasure card, add it to drawnTreasure count
 	if (cardDrawn == copper || cardDrawn == silver || cardDrawn == gold)
-	  drawnTreasure++;
-
+        {
+            drawnTreasure++;
+        }
         // if the card isn't a treasure card, discard it
 	else {
             discardLastDrawnCard(player, state);
 	}
     }
+
 
     return 0;
 }
@@ -51,6 +54,6 @@ int getDrawnCard(int player, struct gameState *state) {
 
 void discardLastDrawnCard(int player, struct gameState *state) {
     int lastCardIndex = state->handCount[player] - 1;
-    discardCard(lastCardIndex, player, state, 0); 
+    discardCard(lastCardIndex, player, state, 1); 
 }
 
