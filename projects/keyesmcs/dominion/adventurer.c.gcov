@@ -1,7 +1,7 @@
         -:    0:Source:adventurer.c
         -:    0:Graph:cards/adventurer.gcno
         -:    0:Data:cards/adventurer.gcda
-        -:    0:Runs:3
+        -:    0:Runs:17
         -:    0:Programs:1
         -:    1:/*EOF*/
         -:    2:/*EOF*/
@@ -22,60 +22,60 @@
         -:   17:/*EOF*/
         -:   18:/*EOF*/
         -:   19:/*EOF*/
-function playAdventurer called 200 returned 100% blocks executed 100%
-      200:   20:/*EOF*/
-      200:   21:/*EOF*/
+function playAdventurer called 800 returned 100% blocks executed 100%
+      800:   20:/*EOF*/
+      800:   21:/*EOF*/
         -:   22:/*EOF*/
         -:   23:/*EOF*/
-    48514:   24:/*EOF*/
-branch  0 taken 48114
-branch  1 taken 200 (fallthrough)
+   194056:   24:/*EOF*/
+branch  0 taken 192456
+branch  1 taken 800 (fallthrough)
         -:   25:/*EOF*/
-    48114:   26:/*EOF*/
-branch  0 taken 200 (fallthrough)
-branch  1 taken 47914
-      200:   27:/*EOF*/
-call    0 returned 200
+   192456:   26:/*EOF*/
+branch  0 taken 800 (fallthrough)
+branch  1 taken 191656
+      800:   27:/*EOF*/
+call    0 returned 800
         -:   28:/*EOF*/
         -:   29:/*EOF*/
         -:   30:/*EOF*/
-    48114:   31:/*EOF*/
-call    0 returned 48114
-    48114:   32:/*EOF*/
-call    0 returned 48114
+   192456:   31:/*EOF*/
+call    0 returned 192456
+   192456:   32:/*EOF*/
+call    0 returned 192456
         -:   33:/*EOF*/
         -:   34:/*EOF*/
-    48114:   35:/*EOF*/
-branch  0 taken 47714 (fallthrough)
-branch  1 taken 400
-branch  2 taken 47714 (fallthrough)
+   192456:   35:/*EOF*/
+branch  0 taken 190856 (fallthrough)
+branch  1 taken 1600
+branch  2 taken 190856 (fallthrough)
 branch  3 taken 0
 branch  4 taken 0 (fallthrough)
-branch  5 taken 47714
+branch  5 taken 190856
         -:   36:/*EOF*/
-      400:   37:/*EOF*/
+     1600:   37:/*EOF*/
         -:   38:/*EOF*/
         -:   39:/*EOF*/
         -:   40:/*EOF*/
-    47714:   41:/*EOF*/
-call    0 returned 47714
+   190856:   41:/*EOF*/
+call    0 returned 190856
         -:   42:/*EOF*/
         -:   43:/*EOF*/
         -:   44:/*EOF*/
         -:   45:/*EOF*/
-      200:   46:/*EOF*/
+      800:   46:/*EOF*/
         -:   47:/*EOF*/
         -:   48:/*EOF*/
         -:   49:/*EOF*/
-function getDrawnCard called 48114 returned 100% blocks executed 100%
-    48114:   50:/*EOF*/
-    48114:   51:/*EOF*/
-    48114:   52:/*EOF*/
+function getDrawnCard called 192456 returned 100% blocks executed 100%
+   192456:   50:/*EOF*/
+   192456:   51:/*EOF*/
+   192456:   52:/*EOF*/
         -:   53:/*EOF*/
         -:   54:/*EOF*/
-function discardLastDrawnCard called 47714 returned 100% blocks executed 100%
-    47714:   55:/*EOF*/
-    47714:   56:/*EOF*/
-    47714:   57:/*EOF*/
-call    0 returned 47714
-    47714:   58:/*EOF*/
+function discardLastDrawnCard called 190856 returned 100% blocks executed 100%
+   190856:   55:/*EOF*/
+   190856:   56:/*EOF*/
+   190856:   57:/*EOF*/
+call    0 returned 190856
+   190856:   58:/*EOF*/

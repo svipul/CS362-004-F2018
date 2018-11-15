@@ -14,8 +14,9 @@ randomtestadventurer: randomtestadventurer.c dominion.o rngs.o cards
 
 randomtestadventurer.out: randomtestadventurer
 	./randomtestadventurer > randomtestadventurer.out
-	gcov -b -c cards/adventurer.c >> randomtestadventurer.out
-	cat cards/adventurer.c.gcov >> randomtestadventurer.out
+	cd cards
+	gcov -b -c adventurer.c >> randomtestadventurer.out
+	cat adventurer.c.gcov >> randomtestadventurer.out
 
 
 randomtestcard1: randomtestcard1.c dominion.o rngs.o cards
@@ -23,16 +24,18 @@ randomtestcard1: randomtestcard1.c dominion.o rngs.o cards
 
 randomtestcard1.out: randomtestcard1
 	./randomtestcard1 > randomtestcard1.out
-	gcov -b -c cards/mine.c >> randomtestcard1.out
-	cat cards/mine.c.gcov >> randomtestcard1.out
+	cd cards
+	gcov -b -c mine.c >> ../randomtestcard1.out
+	cat mine.c.gcov >> ../randomtestcard1.out
 
 randomtestcard2: randomtestcard2.c
 	gcc -o randomtestcard2 randomtestcard2.c -g dominion.o rngs.o cards/cards.so $(CFLAGS)
 
 randomtestcard2.out: randomtestcard2
 	./randomtestcard2 &> randomtestcard2.out
-	gcov -b -c cards/smithy.c >> randomtestcard2.out
-	cat cards/smithy.c.gcov >> randomtestcard2.out
+	cd cards
+	gcov -b -c smithy.c >> randomtestcard2.out
+	cat smithy.c.gcov >> randomtestcard2.out
 
 
 playdom: dominion.o playdom.c

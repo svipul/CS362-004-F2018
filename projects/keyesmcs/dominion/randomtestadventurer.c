@@ -31,7 +31,11 @@ int main() {
     return 0;
 }
 
-
+/**
+ * creates a random gameState (with a little bit of structure for
+ * necessary card features)
+ * returns the randomly-generated player number to test on
+ */
 int randomizeGameState(struct gameState *randomState) {
     int playerNumber = floor(Random() * 2);
 
@@ -43,13 +47,18 @@ int randomizeGameState(struct gameState *randomState) {
     randomState->discardCount[playerNumber] = floor(Random() * MAX_DECK);
     randomState->handCount[playerNumber] = floor(Random() * MAX_DECK);
     randomState->playedCardCount = 0;
+
+    // make sure there are enough coins in the deck for the card to 
+    // be successful
     randomState->deck[playerNumber][0] = copper;
     randomState->deck[playerNumber][1] = copper;
 
     return playerNumber;
 }
 
-
+/**
+ * Test the card, mostly just calls other functions
+ */
 void testAdventurerCard(struct gameState *testState) {
     struct gameState *controlState = malloc(sizeof(struct gameState));
 
@@ -63,10 +72,13 @@ void testAdventurerCard(struct gameState *testState) {
     checkAdventurerCard(testState, controlState, playerNum);
 }
 
+
+/**
+ * Check the pre-function gameState with the post-fuction gameState to be
+ * sure that data in them lines up
+ */
 void checkAdventurerCard(struct gameState *testState,
                          struct gameState *controlState, int player) {
-//    int controlStateIndex = controlState->handCount[player];
-
    
     if (testState->handCount[player] ==
             controlState->handCount[player] + CARDS_ADVENTURER_DRAWS) {
@@ -82,8 +94,6 @@ void checkAdventurerCard(struct gameState *testState,
                 sizeof(int) * MAX_DECK);
         controlState->deckCount[player] = testState->deckCount[player];
   }
-
-printf("handcount: %d %d\n", controlState->handCount[player], testState->handCount[player]);
 
     assert(memcmp(controlState, testState, sizeof(struct gameState)) == 0);
 }

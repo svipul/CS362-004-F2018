@@ -31,7 +31,11 @@ int main() {
     return 0;
 }
 
-
+/**
+ * creates a random gameState (with a little bit of structure for
+ * necessary card features)
+ * returns the randomly-generated player number to test on
+ */
 int randomizeGameState(struct gameState *randomState) {
     int playerNumber = floor(Random() * 2);
 
@@ -47,7 +51,10 @@ int randomizeGameState(struct gameState *randomState) {
     return playerNumber;
 }
 
-
+/**
+ * Check the pre-function gameState with the post-fuction gameState to be
+ * sure that data in them lines up
+ */
 void testSmithyCard(struct gameState *testState) {
     struct gameState *controlState = malloc(sizeof(struct gameState));
 
@@ -61,12 +68,14 @@ void testSmithyCard(struct gameState *testState) {
     checkSmithyCard(testState, controlState, playerNum);
 }
 
+
+/**
+ * Check the pre-function gameState with the post-fuction gameState to be
+ * sure that data in them lines up
+ */
 void checkSmithyCard(struct gameState *testState,
                          struct gameState *controlState, int player) {
 
-/*    if (testState->handCount[player] ==
-            controlState->handCount[player] + CARDS_SMITHY_DRAWS) {
-*/
             controlState->handCount[player] += CARDS_SMITHY_DRAWS;
 
         memcpy(controlState->hand[player],
@@ -80,8 +89,6 @@ void checkSmithyCard(struct gameState *testState,
         controlState->deckCount[player] = testState->deckCount[player];
         controlState->discardCount[player] = testState->discardCount[player];
         controlState->handCount[player] = testState->handCount[player];
-// }
-
 
     assert(memcmp(controlState, testState, sizeof(struct gameState)) == 0);
 }
