@@ -12,6 +12,8 @@ cards: cards/adventurer.c
 randomtestcard1: randomtestcard1.c dominion.o rngs.o cards
 	gcc -o randomtestcard1 randomtestcard1.c -g dominion.o rngs.o cards/cards.so $(CFLAGS)
 
+randomtestcard2: randomtestcard2.c
+	gcc -o randomtestcard2 randomtestcard2.c -g dominion.o rngs.o cards/cards.so $(CFLAGS)
 
 playdom: dominion.o playdom.c
 	gcc -o playdom playdom.c -g dominion.o rngs.o cards/cards.so  $(CFLAGS)
