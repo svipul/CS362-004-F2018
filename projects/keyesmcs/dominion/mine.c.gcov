@@ -1,0 +1,40 @@
+        -:    0:Source:mine.c
+        -:    0:Graph:cards/mine.gcno
+        -:    0:Data:cards/mine.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1:/*EOF*/
+        -:    2:/*EOF*/
+        -:    3:/*EOF*/
+        -:    4:/*EOF*/
+        -:    5:/*EOF*/
+        -:    6:/*EOF*/
+        -:    7:/*EOF*/
+        -:    8:/*EOF*/
+        -:    9:/*EOF*/
+        -:   10:/*EOF*/
+function playMine called 500 returned 100% blocks executed 100%
+      500:   11:/*EOF*/
+      500:   12:/*EOF*/
+      500:   13:/*EOF*/
+branch  0 taken 345 (fallthrough)
+branch  1 taken 155
+branch  2 taken 183 (fallthrough)
+branch  3 taken 162
+      338:   14:/*EOF*/
+call    0 returned 338
+      338:   15:/*EOF*/
+call    0 returned 338
+      338:   16:/*EOF*/
+        -:   17:/*EOF*/
+      162:   18:/*EOF*/
+        -:   19:/*EOF*/
+        -:   20:/*EOF*/
+        -:   21:/*EOF*/
+function upgradeCoin called 338 returned 100% blocks executed 100%
+      338:   22:/*EOF*/
+        -:   23:/*EOF*/
+        -:   24:/*EOF*/
+      338:   25:/*EOF*/
+      338:   26:/*EOF*/
+      338:   27:/*EOF*/

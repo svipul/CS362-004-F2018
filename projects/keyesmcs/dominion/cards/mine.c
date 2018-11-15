@@ -12,7 +12,7 @@ int playMine(int player, struct gameState *state, int mineCard, int coinCard) {
     int cardValue = state->hand[player][coinCard];
     if (cardValue == copper || cardValue == silver) {
         upgradeCoin(player, state, coinCard);
-        discardCard(mineCard, player, state, 0);
+        discardCard(mineCard, player, state, 1);
         return 0;
     } else {
         return -1;
