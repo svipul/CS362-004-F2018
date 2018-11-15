@@ -1,6 +1,6 @@
 #include "dominion.h"
 #include "dominion_helpers.h"
-#include "cards/smithy.h"
+#include "cards/adventurer.h"
 #include "rngs.h"
 #include <assert.h>
 #include <stdio.h>
@@ -9,21 +9,21 @@
 #include <math.h>
 
 #define NUM_RANDOM_TESTS 200
-#define CARDS_SMITHY_DRAWS 3
+#define CARDS_ADVENTURER_DRAWS 2
 
 int randomizeGameState(struct gameState *randomState);
-void testSmithyCard(struct gameState *testState);
-void checkSmithyCard(struct gameState *testState,
+void testAdventurerCard(struct gameState *testState);
+void checkAdventurerCard(struct gameState *testState,
                          struct gameState *controlState, int player);
 
 int main() {
     struct gameState *testState = malloc(sizeof(struct gameState));
 
-    printf("Testing playSmithy\n");
+    printf("Testing playAdventurer\n");
 
     for(int i = 0; i < NUM_RANDOM_TESTS; i++) {
         printf("test %d\n", i);
-        testSmithyCard(testState);
+        testAdventurerCard(testState);
     }
 
     printf("ALL TESTS OK\n");
@@ -42,13 +42,15 @@ int randomizeGameState(struct gameState *randomState) {
     randomState->deckCount[playerNumber] = floor(Random() * MAX_DECK);
     randomState->discardCount[playerNumber] = floor(Random() * MAX_DECK);
     randomState->handCount[playerNumber] = floor(Random() * MAX_DECK);
-    randomState->hand[playerNumber][0] = smithy;
+    randomState->playedCardCount = 0;
+    randomState->deck[playerNumber][0] = copper;
+    randomState->deck[playerNumber][1] = copper;
 
     return playerNumber;
 }
 
 
-void testSmithyCard(struct gameState *testState) {
+void testAdventurerCard(struct gameState *testState) {
     struct gameState *controlState = malloc(sizeof(struct gameState));
 
     int playerNum = randomizeGameState(testState);
@@ -56,18 +58,20 @@ void testSmithyCard(struct gameState *testState) {
 
     memcpy(controlState, testState, sizeof(struct gameState));
 
-    playSmithy(playerNum, testState, 0);
+    playAdventurer(playerNum, testState);
 
-    checkSmithyCard(testState, controlState, playerNum);
+    checkAdventurerCard(testState, controlState, playerNum);
 }
 
-void checkSmithyCard(struct gameState *testState,
+void checkAdventurerCard(struct gameState *testState,
                          struct gameState *controlState, int player) {
+//    int controlStateIndex = controlState->handCount[player];
 
-/*    if (testState->handCount[player] ==
-            controlState->handCount[player] + CARDS_SMITHY_DRAWS) {
-*/
-            controlState->handCount[player] += CARDS_SMITHY_DRAWS;
+   
+    if (testState->handCount[player] ==
+            controlState->handCount[player] + CARDS_ADVENTURER_DRAWS) {
+
+            controlState->handCount[player] += CARDS_ADVENTURER_DRAWS;
 
         memcpy(controlState->hand[player],
                 testState->hand[player],
@@ -76,12 +80,10 @@ void checkSmithyCard(struct gameState *testState,
                 sizeof(int) * MAX_DECK);
         memcpy(controlState->discard[player], testState->discard[player],
                 sizeof(int) * MAX_DECK);
-
         controlState->deckCount[player] = testState->deckCount[player];
-        controlState->discardCount[player] = testState->discardCount[player];
-        controlState->handCount[player] = testState->handCount[player];
-// }
+  }
 
+printf("handcount: %d %d\n", controlState->handCount[player], testState->handCount[player]);
 
     assert(memcmp(controlState, testState, sizeof(struct gameState)) == 0);
 }

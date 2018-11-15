@@ -1,0 +1,89 @@
+File 'adventurer.c'
+Lines executed:100.00% of 18
+Branches executed:100.00% of 10
+Taken at least once:80.00% of 10
+Calls executed:100.00% of 5
+Creating 'adventurer.c.gcov'
+
+        -:    0:Source:adventurer.c
+        -:    0:Graph:adventurer.gcno
+        -:    0:Data:adventurer.gcda
+        -:    0:Runs:3
+        -:    0:Programs:1
+        -:    1:#include "../dominion.h"
+        -:    2:#include <stdio.h>
+        -:    3:
+        -:    4:/**
+        -:    5: * Returns the most recently drawn card for a given player
+        -:    6: * In practice, that's the "top" card in the player's hand
+        -:    7: */
+        -:    8:int getDrawnCard(int player, struct gameState *state);
+        -:    9:
+        -:   10:
+        -:   11:
+        -:   12:/**
+        -:   13: * Places the most recently drawn card on the discard pile
+        -:   14: */
+        -:   15:void discardLastDrawnCard(int player, struct gameState *state);
+        -:   16:
+        -:   17:/**
+        -:   18: * Plays the adventurer card, see header for full description
+        -:   19: */
+function playAdventurer called 200 returned 100% blocks executed 100%
+      200:   20:int playAdventurer(int player, struct gameState *state) {
+      200:   21:    int drawnTreasure = 0; // Tracks the number of treasure cards drawn
+        -:   22:    int cardDrawn;
+        -:   23:
+    48514:   24:    while(drawnTreasure < 2) {
+branch  0 taken 48114
+branch  1 taken 200 (fallthrough)
+        -:   25:        //if the deck is empty, shuffle discard and add to deck
+    48114:   26:        if (state->deckCount[player] <= 1) {
+branch  0 taken 200 (fallthrough)
+branch  1 taken 47914
+      200:   27:	    shuffle(player, state);
+call    0 returned 200
+        -:   28:	}
+        -:   29:
+        -:   30:        // draw a card, and get its value
+    48114:   31:	drawCard(player, state);
+call    0 returned 48114
+    48114:   32:        cardDrawn = getDrawnCard(player, state);
+call    0 returned 48114
+        -:   33:
+        -:   34:        // if the card is a treasure card, add it to drawnTreasure count
+    48114:   35:	if (cardDrawn == copper || cardDrawn == silver || cardDrawn == gold)
+branch  0 taken 47714 (fallthrough)
+branch  1 taken 400
+branch  2 taken 47714 (fallthrough)
+branch  3 taken 0
+branch  4 taken 0 (fallthrough)
+branch  5 taken 47714
+        -:   36:        {
+      400:   37:            drawnTreasure++;
+        -:   38:        }
+        -:   39:        // if the card isn't a treasure card, discard it
+        -:   40:	else {
+    47714:   41:            discardLastDrawnCard(player, state);
+call    0 returned 47714
+        -:   42:	}
+        -:   43:    }
+        -:   44:
+        -:   45:
+      200:   46:    return 0;
+        -:   47:}
+        -:   48:
+        -:   49:
+function getDrawnCard called 48114 returned 100% blocks executed 100%
+    48114:   50:int getDrawnCard(int player, struct gameState *state) {
+    48114:   51:    int topCardIndex = state->handCount[player] - 1;
+    48114:   52:    return state->hand[player][topCardIndex];
+        -:   53:}
+        -:   54:
+function discardLastDrawnCard called 47714 returned 100% blocks executed 100%
+    47714:   55:void discardLastDrawnCard(int player, struct gameState *state) {
+    47714:   56:    int lastCardIndex = state->handCount[player] - 1;
+    47714:   57:    discardCard(lastCardIndex, player, state, 1); 
+call    0 returned 47714
+    47714:   58:}
+        -:   59:

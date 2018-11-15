@@ -9,14 +9,31 @@ dominion.o: dominion.h dominion.c rngs.o
 cards: cards/adventurer.c
 	$(MAKE) all -C cards $(CFLAGS)
 
+randomtestadventurer: randomtestadventurer.c dominion.o rngs.o cards
+	gcc -o randomtestadventurer randomtestadventurer.c -g dominion.o rngs.o cards/cards.so $(CFLAGS)
+
+randomtestadventurer.out: randomtestadventurer
+	./randomtestadventurer > randomtestadventurer.out
+	gcov -b -c cards/adventurer.c >> randomtestadventurer.out
+	cat cards/adventurer.c.gcov >> randomtestadventurer.out
+
+
 randomtestcard1: randomtestcard1.c dominion.o rngs.o cards
 	gcc -o randomtestcard1 randomtestcard1.c -g dominion.o rngs.o cards/cards.so $(CFLAGS)
+
+randomtestcard1.out: randomtestcard1
+	./randomtestcard1 > randomtestcard1.out
+	gcov -b -c cards/mine.c >> randomtestcard1.out
+	cat cards/mine.c.gcov >> randomtestcard1.out
 
 randomtestcard2: randomtestcard2.c
 	gcc -o randomtestcard2 randomtestcard2.c -g dominion.o rngs.o cards/cards.so $(CFLAGS)
 
-randomtestcard3: randomtestcard3.c
-	gcc -o randomtestcard3 randomtestcard3.c -g dominion.o rngs.o cards/cards.so $(CFLAGS)
+randomtestcard2.out: randomtestcard2
+	./randomtestcard2 &> randomtestcard2.out
+	gcov -b -c cards/smithy.c >> randomtestcard2.out
+	cat cards/smithy.c.gcov >> randomtestcard2.out
+
 
 playdom: dominion.o playdom.c
 	gcc -o playdom playdom.c -g dominion.o rngs.o cards/cards.so  $(CFLAGS)

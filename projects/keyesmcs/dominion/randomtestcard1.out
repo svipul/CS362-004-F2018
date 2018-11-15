@@ -1,0 +1,602 @@
+Testing playAdventurer
+test 0
+handcount: 461 461
+test 1
+handcount: 259 259
+test 2
+handcount: 133 133
+test 3
+handcount: 158 158
+test 4
+handcount: 92 92
+test 5
+handcount: 173 173
+test 6
+handcount: 54 54
+test 7
+handcount: 254 254
+test 8
+handcount: 148 148
+test 9
+handcount: 311 311
+test 10
+handcount: 301 301
+test 11
+handcount: 488 488
+test 12
+handcount: 11 11
+test 13
+handcount: 221 221
+test 14
+handcount: 243 243
+test 15
+handcount: 474 474
+test 16
+handcount: 339 339
+test 17
+handcount: 464 464
+test 18
+handcount: 218 218
+test 19
+handcount: 337 337
+test 20
+handcount: 226 226
+test 21
+handcount: 83 83
+test 22
+handcount: 182 182
+test 23
+handcount: 172 172
+test 24
+handcount: 419 419
+test 25
+handcount: 470 470
+test 26
+handcount: 401 401
+test 27
+handcount: 237 237
+test 28
+handcount: 437 437
+test 29
+handcount: 29 29
+test 30
+handcount: 84 84
+test 31
+handcount: 443 443
+test 32
+handcount: 82 82
+test 33
+handcount: 155 155
+test 34
+handcount: 339 339
+test 35
+handcount: 91 91
+test 36
+handcount: 5 5
+test 37
+handcount: 493 493
+test 38
+handcount: 490 490
+test 39
+handcount: 141 141
+test 40
+handcount: 423 423
+test 41
+handcount: 91 91
+test 42
+handcount: 22 22
+test 43
+handcount: 494 494
+test 44
+handcount: 71 71
+test 45
+handcount: 301 301
+test 46
+handcount: 137 137
+test 47
+handcount: 87 87
+test 48
+handcount: 474 474
+test 49
+handcount: 486 486
+test 50
+handcount: 349 349
+test 51
+handcount: 89 89
+test 52
+handcount: 194 194
+test 53
+handcount: 420 420
+test 54
+handcount: 189 189
+test 55
+handcount: 497 497
+test 56
+handcount: 387 387
+test 57
+handcount: 488 488
+test 58
+handcount: 32 32
+test 59
+handcount: 292 292
+test 60
+handcount: 494 494
+test 61
+handcount: 461 461
+test 62
+handcount: 291 291
+test 63
+handcount: 35 35
+test 64
+handcount: 449 449
+test 65
+handcount: 331 331
+test 66
+handcount: 301 301
+test 67
+handcount: 454 454
+test 68
+handcount: 150 150
+test 69
+handcount: 437 437
+test 70
+handcount: 236 236
+test 71
+handcount: 333 333
+test 72
+handcount: 234 234
+test 73
+handcount: 276 276
+test 74
+handcount: 220 220
+test 75
+handcount: 157 157
+test 76
+handcount: 438 438
+test 77
+handcount: 427 427
+test 78
+handcount: 374 374
+test 79
+handcount: 167 167
+test 80
+handcount: 319 319
+test 81
+handcount: 246 246
+test 82
+handcount: 208 208
+test 83
+handcount: 263 263
+test 84
+handcount: 117 117
+test 85
+handcount: 72 72
+test 86
+handcount: 206 206
+test 87
+handcount: 75 75
+test 88
+handcount: 261 261
+test 89
+handcount: 41 41
+test 90
+handcount: 318 318
+test 91
+handcount: 134 134
+test 92
+handcount: 217 217
+test 93
+handcount: 230 230
+test 94
+handcount: 34 34
+test 95
+handcount: 240 240
+test 96
+handcount: 278 278
+test 97
+handcount: 98 98
+test 98
+handcount: 446 446
+test 99
+handcount: 107 107
+test 100
+handcount: 310 310
+test 101
+handcount: 295 295
+test 102
+handcount: 433 433
+test 103
+handcount: 438 438
+test 104
+handcount: 312 312
+test 105
+handcount: 487 487
+test 106
+handcount: 388 388
+test 107
+handcount: 161 161
+test 108
+handcount: 358 358
+test 109
+handcount: 323 323
+test 110
+handcount: 361 361
+test 111
+handcount: 54 54
+test 112
+handcount: 11 11
+test 113
+handcount: 457 457
+test 114
+handcount: 128 128
+test 115
+handcount: 481 481
+test 116
+handcount: 45 45
+test 117
+handcount: 380 380
+test 118
+handcount: 135 135
+test 119
+handcount: 203 203
+test 120
+handcount: 108 108
+test 121
+handcount: 34 34
+test 122
+handcount: 309 309
+test 123
+handcount: 198 198
+test 124
+handcount: 433 433
+test 125
+handcount: 3 3
+test 126
+handcount: 295 295
+test 127
+handcount: 490 490
+test 128
+handcount: 476 476
+test 129
+handcount: 327 327
+test 130
+handcount: 154 154
+test 131
+handcount: 402 402
+test 132
+handcount: 409 409
+test 133
+handcount: 398 398
+test 134
+handcount: 474 474
+test 135
+handcount: 112 112
+test 136
+handcount: 221 221
+test 137
+handcount: 442 442
+test 138
+handcount: 167 167
+test 139
+handcount: 426 426
+test 140
+handcount: 48 48
+test 141
+handcount: 114 114
+test 142
+handcount: 445 445
+test 143
+handcount: 387 387
+test 144
+handcount: 463 463
+test 145
+handcount: 121 121
+test 146
+handcount: 78 78
+test 147
+handcount: 268 268
+test 148
+handcount: 200 200
+test 149
+handcount: 117 117
+test 150
+handcount: 356 356
+test 151
+handcount: 129 129
+test 152
+handcount: 43 43
+test 153
+handcount: 316 316
+test 154
+handcount: 41 41
+test 155
+handcount: 182 182
+test 156
+handcount: 499 499
+test 157
+handcount: 212 212
+test 158
+handcount: 51 51
+test 159
+handcount: 323 323
+test 160
+handcount: 169 169
+test 161
+handcount: 264 264
+test 162
+handcount: 255 255
+test 163
+handcount: 177 177
+test 164
+handcount: 225 225
+test 165
+handcount: 425 425
+test 166
+handcount: 390 390
+test 167
+handcount: 208 208
+test 168
+handcount: 52 52
+test 169
+handcount: 370 370
+test 170
+handcount: 112 112
+test 171
+handcount: 102 102
+test 172
+handcount: 480 480
+test 173
+handcount: 345 345
+test 174
+handcount: 231 231
+test 175
+handcount: 52 52
+test 176
+handcount: 9 9
+test 177
+handcount: 309 309
+test 178
+handcount: 442 442
+test 179
+handcount: 61 61
+test 180
+handcount: 55 55
+test 181
+handcount: 80 80
+test 182
+handcount: 400 400
+test 183
+handcount: 29 29
+test 184
+handcount: 309 309
+test 185
+handcount: 488 488
+test 186
+handcount: 416 416
+test 187
+handcount: 249 249
+test 188
+handcount: 425 425
+test 189
+handcount: 239 239
+test 190
+handcount: 220 220
+test 191
+handcount: 496 496
+test 192
+handcount: 387 387
+test 193
+handcount: 389 389
+test 194
+handcount: 438 438
+test 195
+handcount: 31 31
+test 196
+handcount: 44 44
+test 197
+handcount: 209 209
+test 198
+handcount: 75 75
+test 199
+handcount: 382 382
+test 200
+handcount: 108 108
+test 201
+handcount: 361 361
+test 202
+handcount: 110 110
+test 203
+handcount: 298 298
+test 204
+handcount: 151 151
+test 205
+handcount: 301 301
+test 206
+handcount: 167 167
+test 207
+handcount: 251 251
+test 208
+handcount: 49 49
+test 209
+handcount: 277 277
+test 210
+handcount: 338 338
+test 211
+handcount: 123 123
+test 212
+handcount: 105 105
+test 213
+handcount: 460 460
+test 214
+handcount: 77 77
+test 215
+handcount: 196 196
+test 216
+handcount: 198 198
+test 217
+handcount: 108 108
+test 218
+handcount: 413 413
+test 219
+handcount: 170 170
+test 220
+handcount: 195 195
+test 221
+handcount: 445 445
+test 222
+handcount: 372 372
+test 223
+handcount: 85 85
+test 224
+handcount: 337 337
+test 225
+handcount: 344 344
+test 226
+handcount: 149 149
+test 227
+handcount: 26 26
+test 228
+handcount: 473 473
+test 229
+handcount: 10 10
+test 230
+handcount: 282 282
+test 231
+handcount: 88 88
+test 232
+handcount: 423 423
+test 233
+handcount: 160 160
+test 234
+handcount: 253 253
+test 235
+handcount: 126 126
+test 236
+handcount: 234 234
+test 237
+handcount: 37 37
+test 238
+handcount: 204 204
+test 239
+handcount: 119 119
+test 240
+handcount: 159 159
+test 241
+handcount: 223 223
+test 242
+handcount: 273 273
+test 243
+handcount: 263 263
+test 244
+handcount: 489 489
+test 245
+handcount: 148 148
+test 246
+handcount: 196 196
+test 247
+handcount: 316 316
+test 248
+handcount: 157 157
+test 249
+handcount: 339 339
+test 250
+handcount: 136 136
+test 251
+handcount: 114 114
+test 252
+handcount: 110 110
+test 253
+handcount: 60 60
+test 254
+handcount: 218 218
+test 255
+handcount: 241 241
+test 256
+handcount: 110 110
+test 257
+handcount: 320 320
+test 258
+handcount: 497 497
+test 259
+handcount: 12 12
+test 260
+handcount: 237 237
+test 261
+handcount: 321 321
+test 262
+handcount: 403 403
+test 263
+handcount: 8 8
+test 264
+handcount: 340 340
+test 265
+handcount: 109 109
+test 266
+handcount: 362 362
+test 267
+handcount: 388 388
+test 268
+handcount: 298 298
+test 269
+handcount: 394 394
+test 270
+handcount: 30 30
+test 271
+handcount: 174 174
+test 272
+handcount: 222 222
+test 273
+handcount: 36 36
+test 274
+handcount: 267 267
+test 275
+handcount: 257 257
+test 276
+handcount: 407 407
+test 277
+handcount: 318 318
+test 278
+handcount: 494 494
+test 279
+handcount: 372 372
+test 280
+handcount: 175 175
+test 281
+handcount: 216 216
+test 282
+handcount: 5 5
+test 283
+handcount: 246 246
+test 284
+handcount: 89 89
+test 285
+handcount: 114 114
+test 286
+handcount: 165 165
+test 287
+handcount: 56 56
+test 288
+handcount: 39 39
+test 289
+handcount: 238 238
+test 290
+handcount: 186 186
+test 291
+handcount: 154 154
+test 292
+handcount: 399 399
+test 293
+handcount: 269 269
+test 294
+handcount: 227 227
+test 295
+handcount: 498 498
+test 296
+handcount: 106 106
+test 297
+handcount: 197 197
+test 298
+handcount: 417 417
+test 299
+handcount: 227 227
+tes
