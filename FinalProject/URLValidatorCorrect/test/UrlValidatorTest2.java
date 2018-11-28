@@ -70,98 +70,62 @@ public class UrlValidatorTest extends TestCase {
             }
         }
    }
- 
-   public void testValidCombos() {
-        System.out.println("Testing all valid combinations");
-        testIsValid(validSchemes, validAuthorities, validPorts,
-                            validPaths, validQueries, true);
-   }
-
-   public void testInvalidSchemes() {
-        System.out.println("Testing invalid schemes");
-        testIsValid(invalidSchemes, validAuthorities,
-                                       validPorts, validPaths, validQueries,
-                                       false);
-
-   }
-
-   public void testInvalidAuthorities() {
-        System.out.println("Testing invalid authorities");
-        testIsValid(validSchemes, invalidAuthorities,
-                validPorts,
-                            validPaths, validQueries, false);
-
-   }
-
-   public void testInvalidPorts() {
-        System.out.println("Testing invalid ports");
-        testIsValid(validSchemes, validAuthorities,
-                invalidPorts,
-                            validPaths, validQueries, false);
-   }
-
-   public void testInvalidPaths() {
-        System.out.println("Testing invalid paths");
-        testIsValid(validSchemes, validAuthorities, validPorts,
-                            invalidPaths, validQueries, false);
-
-   }
-
-    static String[] validSchemes = {"http://",
+  
+    String[] validSchemes = {"http://",
                              "https://",
                              "ftp://",
                              "foo://",
                              "test://"};
 
-    static String[] invalidSchemes = {"404://",
+    String[] invalidSchemes = {"404://",
                                "http:",
                                "https//",
                                "ftp:/",
                                "://"};
 
-    static String[] validAuthorities = {"www.google.com",
+    String[] validAuthorities = {"www.google.com",
                                  "172.217.0.36",
                                  "flip3.engr.oregonstate.edu",
                                  "128.193.36.41",
                                  "oregonstate.instructure.com"};
 
-    static String[] invalidAuthorities = {".google.com",
+    String[] invalidAuthorities = {".google.com",
                                    "123.456.789.101",
                                    "flip3.3ngr.or3gonstat3.3du",
                                    "111.111.111.111.111",
                                    "oregonstate.instructure.c"};
 
-    static String[] validPorts = {"",
+    String[] validPorts = {"",
                            ":0",
                            ":65535",
                            ":80",
                            ":12345"};
 
-    static String[] invalidPorts = {":eighty",
+    String[] invalidPorts = {":eighty",
                              ":99999",
                              ":.5",
                              ":-100",
                              ":port"};
 
-    static String[] validPaths = {"",
+    String[] validPaths = {"",
                            "/foo/bar/",
                            "/support/release-notes/android",
                            "/FinalProject/URLValidatorInCorrect/test/",
                            "/courses/1692917/assignments/7334043"};
 
-    static String[] invalidPaths = {"/..",
+    String[] invalidPaths = {"/..",
                              "/../",
                              "//",
                              "/../this/should/not/work",
                              "//file"};
 
-    static String[] validQueries = {"",
+    String[] validQueries = {"",
                              "?key=value",
                              "?key1=value1&key2=value2",
                              "?q=valid+url+queries",
                              "?testing=rad"};
 
-    static String[] invalidQueries = {"?:-a",
+    String[] invalidQueries = {"?:-a",
                                "?key=?",
                                "?@=me",
                                "?[]",
@@ -172,19 +136,43 @@ public class UrlValidatorTest extends TestCase {
                                  
 
     public static void main(String[] argv) {
-        UrlValidatorTest test =
-            new UrlValidatorTest("final project unit tests");
+        UrlValidatorTest testValidCombos =
+            new UrlValidatorTest("Test all valid combinations");
        
-        test.testValidCombos();
-
-        test.testInvalidSchemes();
-
-        test.testInvalidAuthorities();
-
-        test.testInvalidPorts();
-
-        test.testInvalidPaths();
+        System.out.println("Testing all valid combinations");
+        testValidCombos.testIsValid(validSchemes, validAuthorities, validPorts,
+                            validPaths, validQueries, true);
         
+        UrlValidatorTest testInvalidSchemes =
+            new UrlValidatorTest("Test all invalid schemes");
+        
+        System.out.println("Testing invalid schemes");
+        testInvalidSchemes.testIsValid(invalidSchemes, validAuthorities,
+                                       validPorts, validPaths, validQueries,
+                                       false);
+
+        UrlValidatorTest testInvalidAuthorities = 
+            new UrlValidatorTest("Test all invald authorities");
+        
+        System.out.println("Testing invalid authorities");
+        testInvalidAuthorities.testIsValid(validSchemes, invalidAuthorities,
+                validPorts,
+                            validPaths, validQueries, false);
+
+        UrlValidatorTest testInvalidPorts =
+            new UrlValidatorTest("Test all invalid ports");
+        
+        System.out.println("Testing invalid ports");
+        testInvalidPorts.testIsValid(validSchemes, validAuthorities,
+                invalidPorts,
+                            validPaths, validQueries, false);
+
+        UrlValidatorTest testInvalidPaths = 
+            new UrlValidatorTest("Test all invalid paths");
+        
+        System.out.println("Testing invalid paths");
+        testInvalidPaths.testIsValid(validSchemes, validAuthorities, validPorts,
+                            invalidPaths, validQueries, false);
         
        /* not testing queries, as they all seem to register as valid 
         System.out.println("Testing invalid queries");
