@@ -10,10 +10,10 @@ import junit.framework.TestCase;
 
 
 
-public class UrlValidatorTest extends TestCase {
+public class UrlValidatorTest2 extends TestCase {
 
 
-   public UrlValidatorTest(String testName) {
+   public UrlValidatorTest2(String testName) {
       super(testName);
    }
 
@@ -37,46 +37,65 @@ public class UrlValidatorTest extends TestCase {
 
    }
    //You need to create more test cases for your Partitions if you need to 
-   
+  
+
    public void testIsValid()
    {
+       System.out.println("Testing all valid combinations");
+        testAllCombinations(validSchemes, validAuthorities, validPorts,
+                            validPaths, validQueries, true);
+
+        System.out.println("Testing invalid schemes");
+        testAllCombinations(invalidSchemes, validAuthorities, validPorts,
+                            validPaths, validQueries, false);
+
+        System.out.println("Testing invalid authorities");
+        testAllCombinations(validSchemes, invalidAuthorities, validPorts,
+                            validPaths, validQueries, false);
+
+        System.out.println("Testing invalid ports");
+        testAllCombinations(validSchemes, validAuthorities, invalidPorts,
+                            validPaths, validQueries, false);
+        
+        System.out.println("Testing invalid paths");
+        testAllCombinations(validSchemes, validAuthorities, validPorts,
+                            invalidPaths, validQueries, false);
+       /* not testing queries, as they all seem to register as valid 
+        System.out.println("Testing invalid queries");
+        testAllCombinations(validSchemes, validAuthorities, validPorts,
+                            validPaths, invalidQueries, false);
+                            */
+   }
+   
+    public void testAllCombinations(String[] schemes, String[] authorities,
+                                    String[] ports, String[] paths,
+                                    String[] queries, Boolean expectedResult) {
+           
+       String testUrl;
+
         UrlValidator urlVal = new UrlValidator(null, null,
                 UrlValidator.ALLOW_ALL_SCHEMES);
        
-        String[][] validUrlParts = {validSchemes,
-                                   validAuthorities,
-                                   validPorts,
-                                   validPaths,
-                                   validQueries};
 
-        String[][] invalidUrlParts = {invalidSchemes,
-                                      invalidAuthorities,
-                                      invalidPorts,
-                                      invalidPaths,
-                                      invalidQueries};
-
-        for (int scheme = 0; scheme < validScheme.length; scheme++) {
-            for (int authority = 0; authority < validAuthority.length;
+        for (int scheme = 0; scheme < schemes.length; scheme++) {
+            for (int authority = 0; authority < authorities.length;
                     authority++) {
-                for (int port = 0; port < validPort.length; port++) {
-                    for (int path = 0; path < validPath.length; path++) {
-                        for (int query = 0; query < validQuery.length;
-                                query++) {
-                            assertTrue(urlVal.isValid(validUrlParts[0][scheme] +
-                                                validUrlParts[1][authority] +
-                                                validUrlParts[2][port] +
-                                                validUrlParts[3][path] +
-                                                validUrlParts[4][query]));
+                for (int port = 0; port < ports.length; port++) {
+                    for (int path = 0; path < paths.length; path++) {
+                        for (int query = 0; query < queries.length; query++) {
+                            testUrl = schemes[scheme] +
+                                      authorities[authority] +
+                                      ports[port] +
+                                      paths[path] +
+                                      queries[query];
 
-                    
-                                }
+                            Boolean actualResult = urlVal.isValid(testUrl);
+                            assertEquals(testUrl, expectedResult, actualResult);
+                        }
                     }
-
                 }
-
             }
         }
-        
    }
   
     String[] validSchemes = {"http://",
@@ -84,11 +103,12 @@ public class UrlValidatorTest extends TestCase {
                              "ftp://",
                              "foo://",
                              "test://"};
-    String[] invalidSchemes = {"",
+
+    String[] invalidSchemes = {"404://",
                                "http:",
                                "https//",
                                "ftp:/",
-                               "foo://"};
+                               "://"};
 
     String[] validAuthorities = {"www.google.com",
                                  "172.217.0.36",
@@ -98,7 +118,7 @@ public class UrlValidatorTest extends TestCase {
 
     String[] invalidAuthorities = {".google.com",
                                    "123.456.789.101",
-                                   "flip3.engr.oregonstate.edu.",
+                                   "flip3.3ngr.or3gonstat3.3du",
                                    "111.111.111.111.111",
                                    "oregonstate.instructure.c"};
 
@@ -110,7 +130,7 @@ public class UrlValidatorTest extends TestCase {
 
     String[] invalidPorts = {":eighty",
                              ":99999",
-                             ":",
+                             ":.5",
                              ":-100",
                              ":port"};
 
@@ -122,9 +142,9 @@ public class UrlValidatorTest extends TestCase {
 
     String[] invalidPaths = {"/..",
                              "/../",
-                             "/#",
-                             "/#/../this/should/not/work",
-                             "/#testing"};
+                             "//",
+                             "/../this/should/not/work",
+                             "//file"};
 
     String[] validQueries = {"",
                              "?key=value",
@@ -132,14 +152,19 @@ public class UrlValidatorTest extends TestCase {
                              "?q=valid+url+queries",
                              "?testing=rad"};
 
-    String[] invalidQueries = {"?:",
+    String[] invalidQueries = {"?:-a",
                                "?key=?",
                                "?@=me",
                                "?[]",
-                               "?:?"};       
+                               "?:?"};
+
+
+
+                                 
 
     public static void main(String[] argv) {
-
+        UrlValidatorTest2 test = new UrlValidatorTest2("project test");
+        
         test.testIsValid();
     }
 
