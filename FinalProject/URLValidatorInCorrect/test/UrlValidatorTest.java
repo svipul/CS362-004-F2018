@@ -42,11 +42,103 @@ public class UrlValidatorTest extends TestCase {
    {
         UrlValidator urlVal = new UrlValidator(null, null,
                 UrlValidator.ALLOW_ALL_SCHEMES);
-        assertTrue(urlVal.isValid("ftp://www.google.com"));
+       
+        String[][] validUrlParts = {validSchemes,
+                                   validAuthorities,
+                                   validPorts,
+                                   validPaths,
+                                   validQueries};
+
+        String[][] invalidUrlParts = {invalidSchemes,
+                                      invalidAuthorities,
+                                      invalidPorts,
+                                      invalidPaths,
+                                      invalidQueries};
+
+        for (int scheme = 0; scheme < validScheme.length; scheme++) {
+            for (int authority = 0; authority < validAuthority.length;
+                    authority++) {
+                for (int port = 0; port < validPort.length; port++) {
+                    for (int path = 0; path < validPath.length; path++) {
+                        for (int query = 0; query < validQuery.length;
+                                query++) {
+                            assertTrue(urlVal.isValid(validUrlParts[0][scheme] +
+                                                validUrlParts[1][authority] +
+                                                validUrlParts[2][port] +
+                                                validUrlParts[3][path] +
+                                                validUrlParts[4][query]));
+
+                    
+                                }
+                    }
+
+                }
+
+            }
+        }
+        
    }
-   
+  
+    String[] validSchemes = {"http://",
+                             "https://",
+                             "ftp://",
+                             "foo://",
+                             "test://"};
+    String[] invalidSchemes = {"",
+                               "http:",
+                               "https//",
+                               "ftp:/",
+                               "foo://"};
+
+    String[] validAuthorities = {"www.google.com",
+                                 "172.217.0.36",
+                                 "flip3.engr.oregonstate.edu",
+                                 "128.193.36.41",
+                                 "oregonstate.instructure.com"};
+
+    String[] invalidAuthorities = {".google.com",
+                                   "123.456.789.101",
+                                   "flip3.engr.oregonstate.edu.",
+                                   "111.111.111.111.111",
+                                   "oregonstate.instructure.c"};
+
+    String[] validPorts = {"",
+                           ":0",
+                           ":65535",
+                           ":80",
+                           ":12345"};
+
+    String[] invalidPorts = {":eighty",
+                             ":99999",
+                             ":",
+                             ":-100",
+                             ":port"};
+
+    String[] validPaths = {"",
+                           "/foo/bar/",
+                           "/support/release-notes/android",
+                           "/FinalProject/URLValidatorInCorrect/test/",
+                           "/courses/1692917/assignments/7334043"};
+
+    String[] invalidPaths = {"/..",
+                             "/../",
+                             "/#",
+                             "/#/../this/should/not/work",
+                             "/#testing"};
+
+    String[] validQueries = {"",
+                             "?key=value",
+                             "?key1=value1&key2=value2",
+                             "?q=valid+url+queries",
+                             "?testing=rad"};
+
+    String[] invalidQueries = {"?:",
+                               "?key=?",
+                               "?@=me",
+                               "?[]",
+                               "?:?"};       
+
     public static void main(String[] argv) {
-        UrlValidatorTest test = new UrlValidatorTest("project test");
 
         test.testIsValid();
     }
