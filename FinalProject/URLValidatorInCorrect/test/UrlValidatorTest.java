@@ -40,10 +40,15 @@ public class UrlValidatorTest extends TestCase {
    
    public void testIsValid()
    {
-	   //You can use this function for programming based testing
-
+        UrlValidator urlVal = new UrlValidator(null, null,
+                UrlValidator.ALLOW_ALL_SCHEMES);
+        assertTrue(urlVal.isValid("ftp://www.google.com"));
    }
    
+    public static void main(String[] argv) {
+        UrlValidatorTest test = new UrlValidatorTest("project test");
 
+        test.testIsValid();
+    }
 
 }
