@@ -1,6 +1,5 @@
 #include "dominion.h"
 #include "dominion_helpers.h"
-#include "cards/adventurer.h"
 #include "rngs.h"
 #include <assert.h>
 #include <stdio.h>
@@ -67,7 +66,7 @@ void testAdventurerCard(struct gameState *testState) {
 
     memcpy(controlState, testState, sizeof(struct gameState));
 
-    playAdventurer(playerNum, testState);
+    adventurerCardEffect(testState, playerNum);
 
     checkAdventurerCard(testState, controlState, playerNum);
 }

@@ -1,6 +1,5 @@
 #include "dominion.h"
 #include "dominion_helpers.h"
-#include "cards/mine.h"
 #include "rngs.h"
 #include <assert.h>
 #include <stdio.h>
@@ -46,6 +45,7 @@ int randomizeGameState(struct gameState *randomState) {
     randomState->deckCount[playerNumber] = floor(Random() * MAX_DECK);
     randomState->discardCount[playerNumber] = floor(Random() * MAX_DECK);
     randomState->handCount[playerNumber] = floor(Random() * MAX_DECK);
+    randomState->playedCardCount = floor(Random() * MAX_DECK);
 
     // need a mine card to actually play
     randomState->hand[playerNumber][0] = mine;
@@ -62,14 +62,14 @@ int randomizeGameState(struct gameState *randomState) {
  */
 void testMineCard(struct gameState *testState) {
     struct gameState *controlState = malloc(sizeof(struct gameState));
-
     int playerNum = randomizeGameState(testState);
 
-
+    int randomBuyCard = floor(Random() * treasure_map);
     memcpy(controlState, testState, sizeof(struct gameState));
-
-    playMine(playerNum, testState, 0, 1);
-
+   
+    printf("mineCardEffect result: %d\n", 
+            mineCardEffect(testState, playerNum, 1, randomBuyCard, 0)
+            );
     checkMineCard(testState, controlState, playerNum);
 }
 
@@ -84,6 +84,8 @@ void checkMineCard(struct gameState *testState,
     // check that the card was actually able to play
     if (controlState->hand[player][1] != testState->hand[player][1]) {
         controlState->handCount[player]--;
+        controlState->playedCards[controlState->playedCardCount] = mine;
+        controlState->playedCardCount++;
     }
         memcpy(controlState->hand[player],
                 testState->hand[player],

@@ -1,6 +1,5 @@
 #include "dominion.h"
 #include "dominion_helpers.h"
-#include "cards/smithy.h"
 #include "rngs.h"
 #include <assert.h>
 #include <stdio.h>
@@ -47,6 +46,7 @@ int randomizeGameState(struct gameState *randomState) {
     randomState->discardCount[playerNumber] = floor(Random() * MAX_DECK);
     randomState->handCount[playerNumber] = floor(Random() * MAX_DECK);
     randomState->hand[playerNumber][0] = smithy;
+    randomState->playedCardCount = floor(Random() * (MAX_DECK - 1));
 
     return playerNumber;
 }
@@ -59,12 +59,8 @@ void testSmithyCard(struct gameState *testState) {
     struct gameState *controlState = malloc(sizeof(struct gameState));
 
     int playerNum = randomizeGameState(testState);
-
-
     memcpy(controlState, testState, sizeof(struct gameState));
-
-    playSmithy(playerNum, testState, 0);
-
+    smithyCardEffect(playerNum, testState, 0);
     checkSmithyCard(testState, controlState, playerNum);
 }
 
@@ -76,8 +72,11 @@ void testSmithyCard(struct gameState *testState) {
 void checkSmithyCard(struct gameState *testState,
                          struct gameState *controlState, int player) {
 
-        controlState->handCount[player] += CARDS_SMITHY_DRAWS;
+            
+        controlState->handCount[player] += CARDS_SMITHY_DRAWS - 1;
         controlState->deckCount[player] -= CARDS_SMITHY_DRAWS;
+        controlState->playedCards[controlState->playedCardCount] = smithy;
+        controlState->playedCardCount++;
 
         memcpy(controlState->hand[player],
                 testState->hand[player],

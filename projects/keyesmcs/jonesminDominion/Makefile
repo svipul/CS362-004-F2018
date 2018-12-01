@@ -33,7 +33,11 @@ runtests: testDrawCard
 player: player.c interface.o
 	gcc -o player player.c -g  dominion.o rngs.o interface.o $(CFLAGS)
 
-### keyesmcs@ test rules
+
+### keyesmcs@ test build rules ###
+
+
+## UNIT TESTS ##
 
 # assertThat, test helper rules
 assertThat.o: assertThat.c assertThat.h
@@ -71,7 +75,24 @@ testSuite: testSuite.c unittest1.o unittest2.o unittest3.o unittest4.o \
 	    unittest3.o unittest4.o cardtest1.o cardtest2.o cardtest3.o \
 	    cardtest4.o assertThat.o rngs.o $(CFLAGS)
 
-### end keyesmcs@ test rules
+
+## RANDOM TESTS ##
+
+
+randomtestadventurer.exe: randomtestadventurer.c dominion.o rngs.o
+	gcc -o randomtestadventurer.exe randomtestadventurer.c -g dominion.o \
+	    rngs.o $(CFLAGS)
+
+randomtestcard1.exe: randomtestcard1.c dominion.o rngs.o
+	gcc -o randomtestcard1.exe randomtestcard1.c -g dominion.o \
+	    rngs.o $(CFLAGS)
+
+randomtestcard2.exe: randomtestcard2.c dominion.o rngs.o
+	gcc -o randomtestcard2.exe randomtestcard2.c -g dominion.o \
+	    rngs.o $(CFLAGS)
+
+
+### end keyesmcs@ test build rules ###
 
 all: playdom player 
 

@@ -78,7 +78,8 @@ void resetCouncilMockState(struct gameState * mockGameState) {
     int i;
 
     mockGameState->whoseTurn = 0;
-
+    mockGameState->numPlayers = 4;
+    
     mockGameState->hand[0][0] = council_room;
     mockGameState->handCount[0] = 1;
 
